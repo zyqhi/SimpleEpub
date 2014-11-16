@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<package version="2.0" unique-identifier="PrimaryID" mlns="http://www.idpf.org/2007/opf">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+<dc:title>雨季不再来</dc:title>
+<dc:identifier opf:scheme="ISBN"></dc:identifier>
+<dc:language>简体中文</dc:language>
+<dc:creator>三毛</dc:creator>
+<dc:publisher>epub掌上书苑</dc:publisher>
+<dc:description>《雨季不再来》以三毛的生命历程为主题，记录了三毛17岁到22岁的成长过程，真实呈现出三毛少女时代的成长感受，辍学、自闭、叛逆，游学西班牙、德国、美国后，渐渐成长为独立自信的青年，本书中透露的纯真情怀和异质美感，可以清楚地印证她传奇性格的痕迹。</dc:description>
+<dc:coverage></dc:coverage>
+<dc:source>http://www.cnepub.com</dc:source>
+<dc:date>2010-02-12</dc:date>
+<dc:rights>本电子书由epubBuilder制作生成，欢迎访问http://www.cnepub.com浏览海量电子书。</dc:rights>
+<dc:subject>现代·当代</dc:subject>
+<dc:contributor></dc:contributor>
+<dc:type>[type]</dc:type>
+<dc:format></dc:format>
+<dc:relation></dc:relation>
+<dc:builder>epubBuilder</dc:builder>
+<dc:builder_version>2.3.2.6</dc:builder_version>
+<meta name="cover" content="cover-image"/>
+</metadata>
+<manifest>
+<!-- Content Documents -->
+<item id="main-css" href="css/main.css" media-type="text/css"/>
+<item id="coverpage"  href="coverpage.html"  media-type="application/xhtml+xml"/>
+<item id="chapter1"  href="chapter1.html"  media-type="application/xhtml+xml"/>
+<item id="chapter2"  href="chapter2.html"  media-type="application/xhtml+xml"/>
+<item id="chapter3"  href="chapter3.html"  media-type="application/xhtml+xml"/>
+<item id="chapter4"  href="chapter4.html"  media-type="application/xhtml+xml"/>
+<item id="chapter5"  href="chapter5.html"  media-type="application/xhtml+xml"/>
+<item id="chapter6"  href="chapter6.html"  media-type="application/xhtml+xml"/>
+<item id="chapter7"  href="chapter7.html"  media-type="application/xhtml+xml"/>
+<item id="chapter8"  href="chapter8.html"  media-type="application/xhtml+xml"/>
+<item id="chapter9"  href="chapter9.html"  media-type="application/xhtml+xml"/>
+<item id="chapter10"  href="chapter10.html"  media-type="application/xhtml+xml"/>
+<item id="chapter11"  href="chapter11.html"  media-type="application/xhtml+xml"/>
+<item id="chapter12"  href="chapter12.html"  media-type="application/xhtml+xml"/>
+<item id="chapter13"  href="chapter13.html"  media-type="application/xhtml+xml"/>
+<item id="chapter14"  href="chapter14.html"  media-type="application/xhtml+xml"/>
+<item id="chapter15"  href="chapter15.html"  media-type="application/xhtml+xml"/>
+<item id="chapter16"  href="chapter16.html"  media-type="application/xhtml+xml"/>
+<item id="chapter17"  href="chapter17.html"  media-type="application/xhtml+xml"/>
+
+<item id="ncx"  href="fb.ncx" media-type="application/x-dtbncx+xml"/>
+<item id="css" href="css/main.css" media-type="text/css"/>
+<item id="cover-image" href="images/cover.jpg" media-type="image/jpeg"/>
+</manifest>
+<spine toc="ncx">
+<itemref idref="coverpage" linear="yes"/>
+<itemref idref="chapter1" linear="yes"/>
+<itemref idref="chapter2" linear="yes"/>
+<itemref idref="chapter3" linear="yes"/>
+<itemref idref="chapter4" linear="yes"/>
+<itemref idref="chapter5" linear="yes"/>
+<itemref idref="chapter6" linear="yes"/>
+<itemref idref="chapter7" linear="yes"/>
+<itemref idref="chapter8" linear="yes"/>
+<itemref idref="chapter9" linear="yes"/>
+<itemref idref="chapter10" linear="yes"/>
+<itemref idref="chapter11" linear="yes"/>
+<itemref idref="chapter12" linear="yes"/>
+<itemref idref="chapter13" linear="yes"/>
+<itemref idref="chapter14" linear="yes"/>
+<itemref idref="chapter15" linear="yes"/>
+<itemref idref="chapter16" linear="yes"/>
+<itemref idref="chapter17" linear="yes"/>
+
+</spine>
+<guide>
+<reference type="text" title="封面"  href="coverpage.html"/>
+<reference type="text" title="“苍弱”与“健康”"  href="chapter1.html"/>
+<reference type="text" title="当三毛还是在二毛的时候（自序）"  href="chapter2.html"/>
+<reference type="text" title="惑"  href="chapter3.html"/>
+<reference type="text" title="秋恋"  href="chapter4.html"/>
+<reference type="text" title="月河"  href="chapter5.html"/>
+<reference type="text" title="极乐鸟"  href="chapter6.html"/>
+<reference type="text" title="雨季不再来"  href="chapter7.html"/>
+<reference type="text" title="一个星期一的早晨"  href="chapter8.html"/>
+<reference type="text" title="安东尼·我的安东尼"  href="chapter9.html"/>
+<reference type="text" title="赴欧旅途见闻录"  href="chapter10.html"/>
+<reference type="text" title="我从台湾起飞"  href="chapter11.html"/>
+<reference type="text" title="翻船人看黄鹤楼"  href="chapter12.html"/>
+<reference type="text" title="平沙漠漠夜带刀"  href="chapter13.html"/>
+<reference type="text" title="去年的冬天"  href="chapter14.html"/>
+<reference type="text" title="附录　三毛——异乡的赌徒桂文亚"  href="chapter15.html"/>
+<reference type="text" title="访三毛、写三毛"  href="chapter16.html"/>
+<reference type="text" title="飞"  href="chapter17.html"/>
+
+</guide>
+</package>

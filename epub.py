@@ -38,8 +38,7 @@ spine = ""
 # Write each HTML file to the ebook, collect information for the index
 for i, html in enumerate(html_files):
     basename = os.path.basename(html)
-    manifest += '<item id="file_%s" href="%s" media-type="application/xhtml+xml"/>' % (
-        i+1, basename)
+    manifest += '<item id="file_%s" href="%s" media-type="application/xhtml+xml"/>' % (i+1, basename)
     spine += '<itemref idref="file_%s" />' % (i+1)
     epub.write(html, 'OEBPS/'+basename)
 
@@ -47,4 +46,7 @@ for i, html in enumerate(html_files):
 epub.writestr('OEBPS/Content.opf', index_tpl % {
     'manifest': manifest,
     'spine': spine,
-})
+    })
+
+# close the file
+epub.close()
