@@ -7,7 +7,7 @@ epub = zipfile.ZipFile('my_ebook.epub', 'w')
 epub.writestr("mimetype", "application/epub+zip")
 
 # The filenames of the HTML are listed in html_files
-html_files = ['foo.html', 'bar.html']
+html_files = ['coverpage.html', 'foo.html', 'bar.html']
 
 # We need an index file, that lists all other HTML files
 # This index file itself is referenced in the META_INF/container.xml
@@ -23,7 +23,9 @@ epub.writestr("META-INF/container.xml", '''<container version="1.0"
 # in OEBPS/Content.xml
 index_tpl = '''<package version="2.0"
   xmlns="http://www.idpf.org/2007/opf">
-  <metadata/>
+  <metadata>
+    %(dc)s
+  </metadata>
   <manifest>
     %(manifest)s
   </manifest>
@@ -32,6 +34,7 @@ index_tpl = '''<package version="2.0"
   </spine>
 </package>'''
 
+dc = "<dc:title>Hello world</dc:title>"
 manifest = ""
 spine = ""
 
@@ -44,9 +47,12 @@ for i, html in enumerate(html_files):
 
 # Finally, write the index
 epub.writestr('OEBPS/Content.opf', index_tpl % {
-    'manifest': manifest,
-    'spine': spine,
+    'manifest' : manifest,
+    'spine' : spine,
+    'dc' : dc
     })
+
+epub.write('/home/zyqhi/projects/simpleepub/images/cover.jpg', 'OEBPS/images/cover.jpg')
 
 # close the file
 epub.close()
