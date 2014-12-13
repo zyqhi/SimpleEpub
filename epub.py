@@ -1,3 +1,10 @@
+# Description :  A simple Epub generator
+# Author      :  Yongqiang Zhou
+# Date        :  Sat Dec 13 21:03:37 CST 2014
+# -:- 为另外一个人改变自己真是很残酷的事情啊  -:-
+
+#C-u M-! insert shell command output to emacs buffer
+
 import os.path
 from zipfile import ZipFile
 
