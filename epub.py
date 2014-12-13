@@ -1,23 +1,35 @@
 import os.path
-import zipfile
+from zipfile import ZipFile
 
-epub = zipfile.ZipFile('my_ebook.epub', 'w')
+class EpubGen(ZipFile):
+    def __init__(self, name):
+        ZipFile.__init__(self, name, 'w')
+        # write the first file minetype
+        self.write_mimetype()
+        self.write_index_file()
+    
+    # The first file must be named "mimetype"
+    def write_mimetype(self):
+        self.writestr("mimetype", "application/epub+zip")
+    
+    # Epub need a index file that lists all other HTML files
+    # This index file itself is referenced in the META_INF/container.xml
+    # file
+    def write_index_file(self):
+        self.writestr("META-INF/container.xml",
+                      '''<container version="1.0"
+                      xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
+                      <rootfiles>
+                      <rootfile full-path="OEBPS/Content.opf" media-type="application/oebps-package+xml"/>
+                      </rootfiles>
+                      </container>''')
 
-# The first file must be named "mimetype"
-epub.writestr("mimetype", "application/epub+zip")
+
+
+epub = EpubGen('my_ebook.epub')
 
 # The filenames of the HTML are listed in html_files
 html_files = ['coverpage.html', 'foo.html', 'bar.html']
-
-# We need an index file, that lists all other HTML files
-# This index file itself is referenced in the META_INF/container.xml
-# file
-epub.writestr("META-INF/container.xml", '''<container version="1.0"
-           xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
-  <rootfiles>
-    <rootfile full-path="OEBPS/Content.opf" media-type="application/oebps-package+xml"/>
-  </rootfiles>
-</container>''');
 
 # The index file is another XML file, living per convention
 # in OEBPS/Content.xml
@@ -41,8 +53,8 @@ spine = ""
 # Write each HTML file to the ebook, collect information for the index
 for i, html in enumerate(html_files):
     basename = os.path.basename(html)
-    manifest += '<item id="file_%s" href="%s" media-type="application/xhtml+xml"/>' % (i+1, basename)
-    spine += '<itemref idref="file_%s" />' % (i+1)
+    manifest += '<item id="file_%s" href="%s" media-type="application/xhtml+xml"/>\n    ' % (i+1, basename)
+    spine += '<itemref idref="file_%s" />\n    ' % (i+1)
     epub.write(html, 'OEBPS/'+basename)
 
 # Finally, write the index
@@ -52,7 +64,8 @@ epub.writestr('OEBPS/Content.opf', index_tpl % {
     'dc' : dc
     })
 
-epub.write('/home/zyqhi/projects/simpleepub/images/cover.jpg', 'OEBPS/images/cover.jpg')
+# Add cover images
+epub.write('images/cover.jpg', 'OEBPS/images/cover.jpg')
 
 # close the file
 epub.close()
