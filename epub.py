@@ -1,3 +1,5 @@
+#-*-coding:utf-8-*-
+
 # Description :  A simple Epub generator
 # Author      :  Yongqiang Zhou
 # Date        :  Sat Dec 13 21:03:37 CST 2014
@@ -7,6 +9,7 @@
 
 import os.path
 from zipfile import ZipFile
+from epubsection import EpubSection
 
 class EpubGen(ZipFile):
     def __init__(self, name):
@@ -35,8 +38,13 @@ class EpubGen(ZipFile):
 
 epub = EpubGen('my_ebook.epub')
 
+html_files = []
+html_files.append(EpubSection('coverpage.html'))
+html_files.append(EpubSection('foo.html'))
+html_files.append(EpubSection('bar.html'))
+
 # The filenames of the HTML are listed in html_files
-html_files = ['coverpage.html', 'foo.html', 'bar.html']
+#html_files = [, 'foo.html', 'bar.html']
 
 # The index file is another XML file, living per convention
 # in OEBPS/Content.xml
@@ -59,10 +67,10 @@ spine = ""
 
 # Write each HTML file to the ebook, collect information for the index
 for i, html in enumerate(html_files):
-    basename = os.path.basename(html)
+    basename = os.path.basename(html.get_section_file())
     manifest += '<item id="file_%s" href="%s" media-type="application/xhtml+xml"/>\n    ' % (i+1, basename)
     spine += '<itemref idref="file_%s" />\n    ' % (i+1)
-    epub.write(html, 'OEBPS/'+basename)
+    epub.write(html.get_section_file(), 'OEBPS/'+basename)
 
 # Finally, write the index
 epub.writestr('OEBPS/Content.opf', index_tpl % {
